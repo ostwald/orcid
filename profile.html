@@ -5,8 +5,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
     <script src="utils.js"></script>
-    <script src="profile-model.js"></script>
     <script src="config.js"></script>
+
+    <script src="profile-model.js"></script>
+    <script src="profile-script.js"></script>
+
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="styles.css">
@@ -56,77 +59,7 @@
 
 <script>
 
-var PROFILE = null;
 
-// Config
-var CLIENT = CONFIGS.sandbox_public
-var SERVICE = CONFIGS.sandbox_service
-
-$(function () {
-
-    log ('hello world');
-
-    if (PARAMS.orcid)
-        log ("using orcid in url");
-    var ORCID_ID = PARAMS.orcid || CLIENT.ORCID_ID
-
-
-    var base_uri = SERVICE.BASE_API_URL + '/' + ORCID_ID + '/orcid-profile';
-    var params = {
-        client_id : CLIENT.CLIENT_ID,
-        client_secret : CLIENT.CLIENT_SECRET,
-    }
-
-    function display_profile_response (response_json) {
-        try {
-            PROFILE = new Profile(response_json['orcid-profile']);
-        } catch (error) {
-            log ("PROFILE error: " + error);
-        }
-        PROFILE.status()
-        $('#orcid-id').html(PROFILE.orcid_ID);
-        $('#family-name').html(PROFILE.family_name);
-        $('#given-names').html(PROFILE.given_names);
-
-        log ('affiliations ' + PROFILE.affiliations.length);
-        $(PROFILE.affiliations).each (function (i, aff) {
-            // log ("aff: " + stringify(aff))
-            if (aff.type == 'EMPLOYMENT')
-                log (' - ' + getContent(aff.organization.name));
-            else if (aff.type == 'EDUCATION') {
-                log (' - ' + getContent(aff.organization.name));
-            }
-            $('#affiliations').append($t('li').html(getContent(aff.organization.name + ' (' + aff.type + ')')))
-        });
-
-        $(PROFILE.works).each (function (i, work) {
-            // log ("work: " + stringify(work))
-            if (work.type == 'EMPLOYMENT')
-                log (' - ' + getContent(work.organization.name));
-            else if (work.type == 'EDUCATION') {
-                log (' - ' + getContent(work.organization.name));
-            }
-            $('#works').append($t('li').html(work['work-title']['title'].value));
-        });
-
-        // $('#response-json').html($t('pre').html(stringify(response_json)));
-    }
-
-
-    $.ajax ({
-            url:base_uri + '?' + $.param(params),
-            headers : {
-                'Accept' : 'application/vnd.orcid+xml',
-                'Authorization' : 'Bearer'
-            },
-            dataType : "jsonp",
-            success: function (responseJson) {
-                log ("RESPONSE: " + stringify(responseJson));
-                display_profile_response (responseJson)
-            }
-    });
-
-});
 </script>
 
 

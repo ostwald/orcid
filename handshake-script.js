@@ -3,9 +3,13 @@
 //var scope = '/authenticate';
 
 var PARAMS;
+
 // Config
-var CLIENT = CONFIGS.sandbox_member_tmp;
+//var CLIENT = DEFAULT_CLIENT;
+//var SERVICE = DEFAULT_SERVICE;
+var CLIENT = CONFIGS.sandbox_public;
 var SERVICE = CONFIGS.sandbox_service;
+
 var REDIRECT_URI = CONFIGS.redirect_uri;
 var SCOPE = '/orcid-works/create';
 var ACCESS_TOKEN = null;

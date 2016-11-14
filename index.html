@@ -2,9 +2,38 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Demo ORCID Client</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script src="utils.js"></script>
+    <script src="config.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset=utf-8 />
 </head>
 <body>
+<h1>Demo ORCID Client</h1>
+<ul>
+    <li>
+        <a href="search.html">Search</a>
+    </li>
+    <li>
+        <a href="profile.html">Profile</a>
+    </li>
+    <li>
+        <a href="handshake.html">Handshake</a>
+    </li>
+</ul>
 
+<h3>Default Config</h3>
+    <div>Client: <span id="client" class="config-prop"></span></div>
+    <div>Service: <span id="service" class="config-prop"></span></div>
 </body>
+<script>
+ $(function () {
+    $('#client').html(DEFAULT_CLIENT.name);
+    $('#service').html(DEFAULT_SERVICE.name);
+ });
+
+</script>
 </html>
