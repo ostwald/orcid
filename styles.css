@@ -1,0 +1,43 @@
+body {
+    font-family:arial;
+    font-size:.9em;
+}
+
+h1, h2, h3 {
+    padding:0;
+    margin:0;
+}
+
+.orcid-table {
+    border-collapse:collapse;
+    border:blue solid thin;
+}
+
+.orcid-table td,
+.orcid-table th {
+    padding:3px 6px;
+    border:thin grey solid;
+}
+
+.orcid-table th {
+    text-align:center;
+    background-color:grey;
+    color:white;
+}
+
+.orcid-table td.field-name {
+    text-align:right;
+    background-color:grey;
+    color:white;
+    font-size:.9em;
+    border-bottom-color:white;
+}
+
+.orcid-table ul {
+    padding:0px 0px 0px 15px;
+    margin:0px 0px 0px 0px;
+}
+
+.orcid-table ul li {
+    padding-bottom:3px;
+}
