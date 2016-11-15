@@ -1,0 +1,6 @@
+config.js
+*.bak
+*.sav
+*~
+#*
+.idea
