@@ -3,6 +3,8 @@ var CLIENT = DEFAULT_CLIENT;
 var SERVICE = DEFAULT_SERVICE;
 var base_uri = SERVICE.SEARCH_API + '/search/orcid-bio';
 
+log ("CLIENT: " + CLIENT.name)
+log ("SERVICE: " + SERVICE.name)
 
 $(function () {
     // debugging

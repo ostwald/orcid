@@ -4,11 +4,14 @@ var PROFILE = null;
 var CLIENT = DEFAULT_CLIENT;
 var SERVICE = DEFAULT_SERVICE;
 
+log ("CLIENT: " + CLIENT.name)
+log ("SERVICE: " + SERVICE.name)
+
 $(function () {
 
     if (PARAMS.orcid)
         log ("using orcid in url");
-    var ORCID_ID = PARAMS.orcid || CLIENT.ORCID_ID
+    var ORCID_ID = PARAMS.orcid || '0000-0002-6789-8420' // my sandbox user
 
 
     var base_uri = SERVICE.BASE_API_URL + '/' + ORCID_ID + '/orcid-profile';

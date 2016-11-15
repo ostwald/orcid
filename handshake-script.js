@@ -7,8 +7,11 @@ var PARAMS;
 // Config
 //var CLIENT = DEFAULT_CLIENT;
 //var SERVICE = DEFAULT_SERVICE;
-var CLIENT = CONFIGS.sandbox_public;
-var SERVICE = CONFIGS.sandbox_service;
+var CLIENT = CONFIGS.sandbox_member;
+var SERVICE = CONFIGS.sandbox_member_service;
+
+log ("CLIENT: " + CLIENT.name)
+log ("SERVICE: " + SERVICE.name)
 
 var REDIRECT_URI = CONFIGS.redirect_uri;
 var SCOPE = '/orcid-works/create';
@@ -42,7 +45,8 @@ $(function () {
 	}
     else if (code) {
         log ("code is " + code);
-        // getToken(code)
+        log (" .. now get token ...")
+        getToken(code)
         // make auth url and redirect
     }
 	else if (!ACCESS_TOKEN) {
@@ -63,18 +67,23 @@ function getCode (scope) {
         scope : scope,
         redirect_uri : REDIRECT_URI
     }
+
+
     var auth_uri = SERVICE.AUTHORIZE_URL + '?' + $.param(auth_params);
     log ("auth_uri: " + auth_uri);
     window.location = auth_uri;
 }
 
 function getToken(code) {
+    log ('getToken')
     var params = {
         client_id : CLIENT.CLIENT_ID,
         client_secret : CLIENT.CLIENT_SECRET,
         grant_type : 'authorization_code',
-        redirect_uri : REDIRECT_URI,
+//        redirect_uri : REDIRECT_URI,
+        redirect_uri : 'http://localhost',
         code : code,
+//        scope: SCOPE
     }
 
     function callback (responseJson) {
@@ -93,14 +102,14 @@ function getToken(code) {
             data : $.param(params),
 //				data : params,
 //                method : 'POST',
-            jsonpCallback : 'callback',
+//            jsonpCallback : 'callback',
             headers : {
                 'Accept' : 'application/json'
             },
             dataType : "jsonp",
             success: function (responseData) {
                 log ("RESPONSE: " + stringify(responseData));
-                callback(responseData)
+//                callback(responseData)
             },
             // error: function (jzXHR, textsStatus, errorThrown) {
             // 	log ("AJAX ERROR: " + textStatus);
