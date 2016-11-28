@@ -7,6 +7,10 @@ h1, h2, h3 {
     padding:0;
     margin:0;
 }
+
+h3 {
+    margin-top: 15px;
+}
 .config-prop {
     font-weight:bold;
     font-style:italic;
@@ -65,4 +69,15 @@ h1, h2, h3 {
 
 #fields-widget {
     margin:5px 0;
+}
+
+.response-toggle {
+    font-weight:normal;
+    font-size:.9em;
+    cursor:pointer;
+}
+
+.response-toggle:hover {
+    color:purple;
+    font-decoration:underline;
 }

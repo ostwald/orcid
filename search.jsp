@@ -1,10 +1,20 @@
+<%@ include file="/TagLibIncludes.jsp" %>
+<%@ taglib prefix="html" uri="/WEB-INF/tlds/struts-html.tld" %>
+<%@ taglib prefix="logic" uri="/WEB-INF/tlds/struts-logic.tld" %>
+<%@ taglib prefix="bean-el" uri="/WEB-INF/tlds/struts-bean-el.tld"%>
+<%@ taglib prefix="html-el" uri="/WEB-INF/tlds/struts-html-el.tld" %>
+<%@ taglib prefix="logic-el" uri="/WEB-INF/tlds/struts-logic-el.tld" %>
+<c:set var="contextUrl"><%@ include file="/ContextUrl.jsp" %></c:set>
+
 <!DOCTYPE html>
+
 <html lang="en">
 <!--<head  profile="http://www.w3.org/2005/10/profile">-->
 <head >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
-    <script src="utils.js"></script>
+    <script src="${contextUrl}/javascript/utils.js"></script>
+
     <script src="profile-model.js"></script>
     <script src="config.js"></script>
     <script src="search-script.js"></script>

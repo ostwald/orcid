@@ -20,6 +20,10 @@ $(function () {
         client_secret : CLIENT.CLIENT_SECRET,
     }
 
+    $('.response-toggle').click(function (event) {
+        $('#response-json').toggle();
+    })
+
     function display_profile_response (response_json) {
         try {
             PROFILE = new Profile(response_json['orcid-profile']);
@@ -49,7 +53,7 @@ $(function () {
             log (stringify(work))
         });
 
-        // $('#response-json').html($t('pre').html(stringify(response_json)));
+        $('#response-json').html($t('pre').html(stringify(response_json)));
     }
 
 

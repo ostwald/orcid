@@ -37,7 +37,7 @@ function doSearch() {
         client_secret : CLIENT.CLIENT_SECRET,
         q: 'newman',
         start: '0',
-        rows: '10'
+        rows: '100'
     }
 
 //    var field = 'family-name';
@@ -62,7 +62,7 @@ function display_search_results (response_json) {
                 log (stringify(result));
             var profile = new Profile(result['orcid-profile']);
             var profile_link = $t('a')
-                .attr('href', 'profile.html?orcid=' + profile.orcid_ID)
+                .attr('href', 'profile.jsp?orcid=' + profile.orcid_ID)
                 .html(profile.orcid_ID);
 
             var row = $t('tr').attr('id', profile.orcid_ID)
